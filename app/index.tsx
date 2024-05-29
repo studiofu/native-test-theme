@@ -2,6 +2,7 @@ import { Text, View } from 'react-native';
 import '../global.css';
 import { Theme } from '../themes';
 import { ThemeSwitcher } from '../themes/theme-switcher';
+import { Link } from 'expo-router';
 export default function App() {
   return (
     <Theme>
@@ -12,6 +13,8 @@ export default function App() {
         <Text className='text-dummy'>
           ??
         </Text>
+
+        <Link href="dummy" >Go Dummy</Link>
 
         <ThemeSwitcher />
       </View>
