@@ -7,8 +7,7 @@ const Dummy = () => {
   const {
     theme
   } = useThemeContextValues();
-
-
+  
   return (
     <View 
       style={Themes[theme]}
