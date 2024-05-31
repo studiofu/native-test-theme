@@ -12,7 +12,7 @@ export const Themes = {
   }),
   dark: vars({
     '--color-primary': '#ffffff',
-    '--color-secondary': '#000000',
+    '--color-secondary': '#0D0606',
     '--color-outstand': '#552288',
     '--color-dummy' : '#ff00ff'
   }),
