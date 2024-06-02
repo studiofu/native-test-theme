@@ -31,8 +31,8 @@ const Ball = () => {
       );      
 
       if(!isDrag.value) {       
-        const dx = velocity.value.x * frameInfo.timeSincePreviousFrame / 10000;
-        const dy = velocity.value.y * frameInfo.timeSincePreviousFrame / 10000;
+        const dx = velocity.value.x * frameInfo.timeSincePreviousFrame / 1000;
+        const dy = velocity.value.y * frameInfo.timeSincePreviousFrame / 1000;
   
         offset.value = {
           x: offset.value.x + dx,
