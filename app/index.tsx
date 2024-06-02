@@ -20,7 +20,7 @@ export default function App() {
           onPress={() => {
           router.push('dummy');          
         }}>
-          <Text
+          <Text          
             className='m-2 p-2 bg-blue-500 text-white font-semibold rounded-lg'
             style={{
               shadowColor: '#000',

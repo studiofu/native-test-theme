@@ -11,7 +11,7 @@ module.exports = {
         outstand: 'var(--color-outstand)',
         dummy: 'var(--color-dummy)',
       },      
-    },
+    },    
   },
   plugins: [],
 }

@@ -38,6 +38,15 @@ const TabLayout = () => {
           ),
         }}
       />
+
+      <Tabs.Screen name="ball" 
+        options={{
+          //headerShown: false
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="soccer" color={color} size={size} />
+          ),
+        }}
+      />      
       
     </Tabs>
     
