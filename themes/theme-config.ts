@@ -20,13 +20,13 @@ export const Themes = {
     '--color-primary': '#fff',
     '--color-secondary': '#3225de',
     '--color-outstand': '#0ca90c',
-    '--color-dummy' : '#ffffff',
+    '--color-dummy' : '#ff0000',
   }),
   halloween: vars({
     '--color-primary': '#000000',
     '--color-secondary': '#5522dd',
     '--color-outstand': '#ffcc00',
-    '--color-dummy' : '#ffffff',
+    '--color-dummy' : '#0000ff',
   }),
 };
 

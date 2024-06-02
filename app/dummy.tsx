@@ -7,6 +7,7 @@ const Dummy = () => {
   const {
     theme
   } = useThemeContextValues();
+  console.log('theme', theme)
   
   return (
     <View 
