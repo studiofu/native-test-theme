@@ -4,7 +4,8 @@ import { useThemeContextActions } from '.';
 export function ThemeSwitcher() {
   const { handleThemeSwitch } = useThemeContextActions();
   return (
-    <View className="p-5 flex-row flex-wrap gap-y-5 w-full justify-evenly">
+    
+    <View className="p-5 flex flex-col flex-wrap gap-y-5 w-full justify-evenly">
       <Pressable
         onPress={() => handleThemeSwitch('light')}
         className="p-2 rounded-lg items-center bg-outstand justify-center w-40 h-36 shadow-lg shadow-black"

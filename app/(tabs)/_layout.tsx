@@ -64,7 +64,16 @@ const TabLayout = () => {
             <MaterialCommunityIcons name="format-list-bulleted" color={color} size={size} />
           ),
         }}
-      />              
+      />      
+
+      <Tabs.Screen name="toptabs" 
+        options={{
+          //headerShown: false
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="tab" color={color} size={size} />
+          ),
+        }}
+      />                     
       
     </Tabs>
     
