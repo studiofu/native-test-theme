@@ -6,12 +6,16 @@ import { Link, useRouter } from 'expo-router';
 import CustomButton from '@/components/custom-button';
 import AnimatedSheet from '@/components/animated-sheet';
 import { useState } from 'react';
+import AnimatedDrawer from '@/components/animated-drawer';
 
 
 export default function App() {
   const router = useRouter();
 
   const [open , setOpen] = useState(false);
+
+  const [isDrawOpen, setIsDrawOpen] = useState(false);
+
 
   return (
     
@@ -97,10 +101,13 @@ export default function App() {
             > Card</Text>
         </Pressable>        
 
-        <CustomButton title='modal' onPress={() => {
+        <CustomButton title='Animated Modal' onPress={() => {
           setOpen(!open);
         }} />
                 
+        <CustomButton title='Animated Drawer' onPress={() => {
+          setIsDrawOpen(!isDrawOpen);
+        }} />
 
 
         <Text className="text-primary text-lg font-semibold">
@@ -125,6 +132,23 @@ export default function App() {
             </View>
             </TouchableWithoutFeedback>
         </AnimatedSheet>
+
+        <AnimatedDrawer 
+          isOpen={isDrawOpen}
+          onClose={() => setIsDrawOpen(false)}
+          backdropOnPress={() => setIsDrawOpen(false)}
+        >
+
+          <Text> this is drawer</Text>
+          <Text> this is drawer</Text>
+          <Text> this is drawer</Text>
+          <Text> this is drawer</Text>
+          <Text> this is drawer</Text>
+          <Pressable onPress={() => setIsDrawOpen(false)} className='bg-red-500'>
+            <Text>Close</Text>
+          </Pressable>
+
+        </AnimatedDrawer>
 
         <ThemeSwitcher />
       </View>

@@ -1,12 +1,19 @@
-import { View, Text } from 'react-native'
+import { View, Text, TouchableHighlight } from 'react-native'
 import React from 'react'
 import { Slot, Stack } from 'expo-router'
 
 import "../global.css"
 import { Theme } from '@/themes'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import clsx from 'clsx'
+import useModalStore from '@/store/modal-provider'
+
 
 const RootLayout = () => {
+  const {
+    open,
+    setOpen
+  } = useModalStore();
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <Theme>
@@ -45,6 +52,14 @@ const RootLayout = () => {
         
         />
       </Stack>
+      {/* test modal */}    
+      {/* <View className={clsx(`absolute h-full w-full bg-black/50`, open ? 'flex' : 'hidden')}>
+          <TouchableHighlight
+            onPress={() => setOpen(false)}
+            className='absolute top-0 right-0 p-5'>
+            <Text className='text-white'>Close</Text>
+          </TouchableHighlight>        
+      </View>       */}
       </Theme>
     </GestureHandlerRootView>
   )

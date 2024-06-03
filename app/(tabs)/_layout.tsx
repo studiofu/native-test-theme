@@ -23,7 +23,7 @@ const TabLayout = () => {
         initialParams={{ item: 1234}}        
         
         options={{
-          //headerShown: false
+          //headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="home" color={color} size={size} />
           ),
@@ -56,7 +56,7 @@ const TabLayout = () => {
           onPress={() => setOpen(false)}
           className='absolute top-0 right-0 p-5'>
           <Text className='text-white'>Close</Text>
-        </TouchableHighlight>
+        </TouchableHighlight>        
     </View>
     </>
   )

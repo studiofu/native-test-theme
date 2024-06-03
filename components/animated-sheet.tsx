@@ -35,7 +35,7 @@ const AnimatedSheet = (
 ) => {
 
   const { width, height } = Dimensions.get('screen');
-  const h = height-50;
+  const h = height-100;
 
   // offset for the sheet
   const offset = useSharedValue(0);
@@ -153,6 +153,7 @@ const AnimatedSheet = (
 
         <GestureDetector gesture={panGesture}>
           <Animated.View className={`absolute w-full bottom-0 bg-white`}              
+          
 
             //entering={SlideInDown.springify().damping(15)}    
             exiting={SlideOutDown}
@@ -163,6 +164,9 @@ const AnimatedSheet = (
               zIndex: 15
             }, translateY, slideInAnimatedStyle]}
           >
+            <View className='w-[50px] h-[5px] bg-gray-400 mt-1 rounded-md self-center'>
+
+            </View>
             <View>
               <Pressable onPress={() => offset.value=200}><Text className='m-2 p-2'> Test 200</Text></Pressable>
               <Pressable onPress={() => offset.value=500}><Text className='m-2 p-2'> Test500</Text></Pressable>
