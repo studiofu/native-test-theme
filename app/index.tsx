@@ -24,9 +24,9 @@ export default function App() {
           onPress={() => {
           router.push('dummy');          
         }}>
-          <Text          
+          <View
             className='m-2 p-2 bg-blue-500 text-white font-semibold rounded-lg'
-            style={{
+            style={{                                       
               shadowColor: '#000',
               shadowOffset: {
                 width: 0,
@@ -34,9 +34,13 @@ export default function App() {
               },
               shadowOpacity: 0.75,
               shadowRadius: 3.84,
-              elevation: 10,              
+              elevation: 10, 
             }}
+          >
+          <Text
+            className='  text-white font-semibold'
           >Go Dummy</Text>
+          </View>
         </TouchableOpacity>
 
 
@@ -50,24 +54,29 @@ export default function App() {
             }
           }
         >
-            <Text
-              style={{
-                padding: 10,
-                margin: 10,
-                borderRadius: 10,
-                width: 200,
-                textAlign: 'center',
-                backgroundColor: '#f9f9f9',
-                shadowColor: '#000',
-                shadowOffset: {
-                  width: 0,
-                  height: 2,
-                },
-                shadowOpacity: 0.75,
-                shadowRadius: 3.84,
-                elevation: 10,              
-              }}
-            > Tabs</Text>
+          <View
+            style={{                
+              padding: 10,
+              margin: 10,
+              borderRadius: 10,
+              width: 200,
+              
+              backgroundColor: '#f9f9f9',
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.25,
+              shadowRadius: 3.84,
+              elevation: 5,              
+            }}
+          >
+            <Text style={{
+              textAlign: 'center',            
+            }}> Tabs</Text>
+          </View>
+
         </Pressable>
         {/* <Link href="home" className='h-20 w-20 bg-red-400 items-center justify-center text-center'>Go Tabs</Link> */}
 

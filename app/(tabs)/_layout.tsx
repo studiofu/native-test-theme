@@ -47,6 +47,24 @@ const TabLayout = () => {
           ),
         }}
       />      
+
+      <Tabs.Screen name="sticky" 
+        options={{
+          //headerShown: false
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="sticker-emoji" color={color} size={size} />
+          ),
+        }}
+      />            
+
+      <Tabs.Screen name="flatlistscreen" 
+        options={{
+          //headerShown: false
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="format-list-bulleted" color={color} size={size} />
+          ),
+        }}
+      />              
       
     </Tabs>
     

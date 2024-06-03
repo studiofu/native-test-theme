@@ -125,8 +125,8 @@ const AnimatedDrawer = (
       }, 
         isFinished => {
           if (isFinished) {            
-            runOnJS(backdropOnPress)();
             runOnJS(setIsDrawOpen)(false);
+            runOnJS(backdropOnPress)();            
           }          
         }
       );
