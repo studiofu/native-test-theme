@@ -1,7 +1,7 @@
 import { View, Text, FlatList, Pressable, PanResponder, RefreshControl } from 'react-native'
 import React, { Fragment, useEffect, useState } from 'react'
 import clsx from 'clsx';
-import Animated, { runOnJS, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
+import Animated, { Easing, runOnJS, useAnimatedScrollHandler, useAnimatedStyle, useSharedValue, withDelay, withRepeat, withTiming } from 'react-native-reanimated';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 import { FontAwesome, MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
@@ -48,6 +48,7 @@ const FlatListScreen = () => {
 
   // ---------------------------------------------------------------------------
   // use react native PanResponder
+  // not smooth in android
 
   const onPanRelease = () => {
     console.log('onPanRelease');
@@ -127,6 +128,15 @@ const FlatListScreen = () => {
     };
   });
 
+  // const rotation = useSharedValue(0);
+
+  // rotation.value = withRepeat(
+  //   withTiming(360, // toValue: 1
+  //       { duration: 1500, easing: Easing.linear }
+  //   ),
+  //   -1, // inifinite
+  //   false);       
+
   // assign to the refresh icon
   const refreshIconStyles = useAnimatedStyle(() => {
     const scale = Math.min(1, Math.max(0, pullDownPosition.value / 75));
@@ -139,7 +149,9 @@ const FlatListScreen = () => {
           scale: scale,
         },
         {
-          rotate: `${pullDownPosition.value * 3}deg`,
+          rotate: `${pullDownPosition.value * 3}deg`,          
+          //rotate: `${rotation.value}deg`,          
+          
         },
       ],
     };
@@ -351,7 +363,7 @@ const FlatListScreen = () => {
         keyExtractor={(item) => item.id.toString()}
         stickyHeaderIndices={[0,10,20]}
         renderItem={({item, index}) => (
-          <Text className={clsx(`p-1 m-1 bg-gray-200`, [0,10,20].includes(index) &&  'bg-blue-200')}
+          <Text className={clsx(`p-1 m-1 `, [0,10,20].includes(index) ?  'bg-blue-200' : 'bg-gray-200')}
             key={index}
           >{item.title}</Text>
         )}

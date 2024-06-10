@@ -51,7 +51,7 @@ const AnimatedSheet = (
     //     offset.value = 0;
     //     console.log('offset value: 0');
     //   }
-    // }金
+    // }
     // onOpen();
     offset.value = 0;
 

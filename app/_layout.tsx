@@ -10,14 +10,18 @@ import useModalStore from '@/store/modal-provider'
 
 
 const RootLayout = () => {
+  
   const {
     open,
     setOpen
   } = useModalStore();
+
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <Theme>
       <Stack
+        screenOptions={{          
+        }}
       >
         <Stack.Screen name="index" 
           options={{
@@ -34,6 +38,12 @@ const RootLayout = () => {
             //headerShown: false
           }}
         />  
+
+        <Stack.Screen name="svg-page" 
+          options={{
+            //headerShown: false
+          }}
+        />          
 
         {/** using expo stack, gesture is not work in android */}
         <Stack.Screen name="card"    
@@ -52,7 +62,7 @@ const RootLayout = () => {
         
         />
       </Stack>
-      {/* test modal */}    
+      {/* test modal  real full-screen */}    
       {/* <View className={clsx(`absolute h-full w-full bg-black/50`, open ? 'flex' : 'hidden')}>
           <TouchableHighlight
             onPress={() => setOpen(false)}
