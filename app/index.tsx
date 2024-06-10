@@ -20,9 +20,14 @@ export default function App() {
   const [isDrawOpen, setIsDrawOpen] = useState(false);
 
 
+  // env:
+  // NODE_ENV=test npx expo start --config app/app.json
+  // NODE_ENV=test npx expo start
+
   return (
     
       <View className="flex-1 items-center justify-center bg-secondary">
+        <Text>Env: {process.env.EXPO_PUBLIC_ENV}</Text>
         <TouchableOpacity           
           onPress={() => {
           router.push('dummy');          
@@ -190,7 +195,7 @@ export default function App() {
 
           <Text> this is drawer</Text>
           
-          <View className='flex'>
+          
           <TouchableWithoutFeedback>
           <FlatList 
             numColumns={2}
@@ -212,7 +217,7 @@ export default function App() {
           
           />       
           </TouchableWithoutFeedback>
-          </View>   
+           
 
           {/* {            
             Array.from({length: 10}).map((_, index) => (
