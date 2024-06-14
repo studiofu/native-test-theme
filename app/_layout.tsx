@@ -43,7 +43,17 @@ const RootLayout = () => {
           options={{
             //headerShown: false
           }}
-        />          
+        />      
+
+        <Stack.Screen name="(drawer)"    />
+
+        <Stack.Screen name="foodorder" 
+        
+          options={{
+            title: "Food Order",
+            headerShown: false
+          }}
+        />
 
         {/** using expo stack, gesture is not work in android */}
         <Stack.Screen name="card"    

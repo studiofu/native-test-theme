@@ -24,32 +24,54 @@ export default function App() {
   // NODE_ENV=test npx expo start --config app/app.json
   // NODE_ENV=test npx expo start
 
+  // WINDOWS,
+  // set NODE_ENV=test
+  // npm run start
+
   return (
     
       <View className="flex-1 items-center justify-center bg-secondary">
         <Text>Env: {process.env.EXPO_PUBLIC_ENV}</Text>
-        <TouchableOpacity           
-          onPress={() => {
-          router.push('dummy');          
+
+        <View style={{
+          flexDirection: 'row',          
         }}>
-          <View
-            className='m-2 p-2 bg-blue-500 text-white font-semibold rounded-lg'
-            style={{                                       
-              shadowColor: '#000',
-              shadowOffset: {
-                width: 0,
-                height: 2,
-              },
-              shadowOpacity: 0.75,
-              shadowRadius: 3.84,
-              elevation: 10, 
+          <TouchableOpacity           
+            onPress={() => {
+            router.push('dummy');          
+          }}>
+            <View
+              className='m-2 p-2 bg-blue-500 text-white font-semibold rounded-lg'
+              style={{                                       
+                shadowColor: '#000',
+                shadowOffset: {
+                  width: 0,
+                  height: 2,
+                },
+                shadowOpacity: 0.75,
+                shadowRadius: 3.84,
+                elevation: 10, 
+              }}
+            >
+            <Text
+              className='  text-white font-semibold'
+            >Go Dummy</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity 
+            onPress={() => {
+              router.push('foodorder');
             }}
           >
-          <Text
-            className='  text-white font-semibold'
-          >Go Dummy</Text>
-          </View>
-        </TouchableOpacity>
+            <View className='
+              m-2 p-2 bg-blue-500 text-white font-semibold rounded-lg                             
+            '>
+              <Text className='
+                text-white font-semibold
+              '>Food Order</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
 
 
         <Pressable          
@@ -186,6 +208,33 @@ export default function App() {
             </View>
             </TouchableWithoutFeedback>
         </AnimatedSheet>
+
+        <View>
+          
+          <Link href="drawer-page" asChild>
+          <Pressable>
+          <View             style={{
+              padding: 10,
+              margin: 10,
+              borderRadius: 10,
+              width: 200,              
+              backgroundColor: '#f9f9f9',
+              shadowColor: '#000',
+              shadowOffset: {
+                width: 0,
+                height: 2,
+              },
+              shadowOpacity: 0.75,
+              shadowRadius: 3.84,
+              elevation: 10,              
+            }}>
+              <Text>This is expo drawer</Text>
+          </View>
+          </Pressable>
+          </Link>
+          
+        </View>
+        
 
         <AnimatedDrawer 
           isOpen={isDrawOpen}

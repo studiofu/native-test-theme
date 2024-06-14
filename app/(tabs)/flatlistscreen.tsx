@@ -359,7 +359,7 @@ const FlatListScreen = () => {
 
         bounces={false}
         showsVerticalScrollIndicator={false}
-
+        onEndReached={() => console.log('end reached need to load more data')}
         keyExtractor={(item) => item.id.toString()}
         stickyHeaderIndices={[0,10,20]}
         renderItem={({item, index}) => (
