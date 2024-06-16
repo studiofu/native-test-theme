@@ -5,6 +5,7 @@ import { Stack } from 'expo-router/stack';
 import AuthProvider from './providers/auth-provider';
 import { QueryClient } from '@tanstack/react-query';
 import QueryProvider from './providers/query-provider';
+import UserActivity from '@/providers/user-activity';
 
 
 const FoodOrderLayout = () => {
@@ -19,7 +20,9 @@ const FoodOrderLayout = () => {
       
   return (    
     
-    <QueryProvider>
+    
+    <QueryProvider>    
+    <UserActivity>
     <AuthProvider>
       <Stack
         initialRouteName="index"
@@ -45,7 +48,9 @@ const FoodOrderLayout = () => {
         />
       </Stack>    
     </AuthProvider>      
+    </UserActivity>
     </QueryProvider>
+    
   )
 }
 
