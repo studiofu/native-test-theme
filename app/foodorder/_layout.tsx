@@ -2,6 +2,9 @@ import { View, Text, ActivityIndicator } from 'react-native'
 import React, { useEffect } from 'react'
 import { supabase } from './lib/supabase'
 import { Stack } from 'expo-router/stack';
+import AuthProvider from './providers/auth-provider';
+import { QueryClient } from '@tanstack/react-query';
+import QueryProvider from './providers/query-provider';
 
 
 const FoodOrderLayout = () => {
@@ -15,6 +18,9 @@ const FoodOrderLayout = () => {
   }, []);
       
   return (    
+    
+    <QueryProvider>
+    <AuthProvider>
       <Stack
         initialRouteName="index"
       >
@@ -24,15 +30,22 @@ const FoodOrderLayout = () => {
           }}
         />
         <Stack.Screen name="(admin)" />
-        
-        <Stack.Screen name="(auth)" />                
+        <Stack.Screen name="(user)"          
+          options={{
+            headerShown: true,
+            title: "User",
+          }}
+        />
+        <Stack.Screen name="(auth)" />        
         <Stack.Screen name="(cart)/index" 
-          options={{            
+          options={{
             presentation: 'modal',
             headerShown: false
           }}
         />
-      </Stack>          
+      </Stack>    
+    </AuthProvider>      
+    </QueryProvider>
   )
 }
 

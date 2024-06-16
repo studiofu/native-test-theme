@@ -3,11 +3,16 @@ import React, { useEffect } from 'react'
 import { Link, useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { supabase } from './lib/supabase';
+import Button from './components/Button';
+import { useAuth } from './providers/auth-provider';
 
 const Index = () => {
 
   const router = useRouter();
   const [songs, setSongs] = React.useState([])
+  const auth = useAuth();  
+
+  //console.log(auth);
 
   useEffect(() => {
     console.log('foodorder index page mounted')
@@ -18,7 +23,7 @@ const Index = () => {
       if (error) {
         console.log('error', error)
       } else {
-        console.log('data', data)
+        //console.log('data', data)
         setSongs(data as any);
       }
     })      
@@ -94,6 +99,61 @@ const Index = () => {
         }}
       >Admin</Link>  
 
+        {
+          !auth.session && (
+            <>
+            <TouchableOpacity
+            onPress={() => {
+              router.push('foodorder/(auth)/sign-up')
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: 'blue',
+                padding: 10,
+                borderRadius: 5,
+                marginTop: 10
+              }}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontWeight: 'bold'
+                }}
+              >
+                Sign Up
+              </Text>
+            </View>
+          </TouchableOpacity>      
+    
+          <TouchableOpacity
+            onPress={() => {
+              router.push('foodorder/(auth)/sign-in')
+            }}
+          >
+            <View
+              style={{
+                backgroundColor: 'blue',
+                padding: 10,
+                borderRadius: 5,
+                marginTop: 10
+              }}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontWeight: 'bold'
+                }}
+              >
+                Sign In
+              </Text>
+            </View>
+          </TouchableOpacity>        
+          </>
+          )
+        }
+  
+
       <TouchableOpacity
         onPress={() => {
           router.push('foodorder/(cart)')
@@ -117,6 +177,22 @@ const Index = () => {
           </Text>
         </View>
       </TouchableOpacity>
+
+      {auth.session && (
+        <Button onPress={() => supabase.auth.signOut()} text="Sign out" />
+      )}
+      <View>
+        <Text
+          style={{
+            color: 'blue',
+            fontWeight: 'bold',
+            padding: 10,
+            backgroundColor: 'lightgray',
+            borderRadius: 5,
+            margin: 10
+          }}
+        >userid: {auth.session?.user.id}</Text>
+      </View>
     </View>    
   )
 }
